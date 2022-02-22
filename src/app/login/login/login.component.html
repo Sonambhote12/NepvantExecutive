@@ -1,0 +1,87 @@
+<nb-layout>
+    <nb-layout-column>     
+        <!-- <div class="container vh-100">
+            <div class="row justify-content-center h-100">
+                <div class="card my-auto shadow">
+                    <div class="card-body px-5">
+                        <div class="text-center">
+                            <nb-icon icon="people-outline"></nb-icon>
+                        </div>
+                        <div class="text-center">
+                            <h4>Nepvent Admin Login</h4>
+                        </div>
+                        <p style="color: lightslategray; text-align: center;">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please enter your login
+                            details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                        <form [formGroup]="addUserform">
+                            <div class="form-group">
+                                <input type="email" id="slug" placeholder="RestuarantId" class="form-control" formControlName="slug"
+                                    name="slug" />
+                                    <span style="color:red;" *ngIf="slug && slug.invalid && slug.touched">This input field is not valid</span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="username" placeholder="Username" class="form-control"
+                                    formControlName="user_name" name="username" />
+                                <span style="color:red;" *ngIf="username && username.invalid && username.touched">username field is invalid</span>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="password" placeholder="Password" class="form-control"
+                                    formControlName="password" name="password" />
+                                <span style="color:red;" *ngIf="password && password.invalid && password.touched">Password field is not valid</span>
+                            </div>
+                            <input type="submit" class="btn btn-primary w-100" value="Login" (click)="onSubmit()">
+                        </form>
+                    </div>
+                    <div class="card-footer text-right">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>  -->
+        
+        <img class="wave" src="../../../assets/image/wave.png">
+        <div class="container">
+            <div class="img">
+                <img src="../../../assets/image/Desktop.svg">
+            </div>
+            <div class="login-content">
+                <form [formGroup]="addUserform">
+                    <img src="../../../assets/image/avatar.svg">
+                    <h2 class="title">Welcome</h2>
+                       <div class="input-div one">
+                          <div class="i">
+                                  <i class="fas fa-user"></i>
+                          </div>
+                          <div class="div">
+                                  <h5>RestuarantId</h5>
+                                  <input type="text" class="form-control" formControlName="slug">
+                                  <span style="color:red;" *ngIf="slug && slug.invalid && slug.touched">This input field is not valid</span>
+                          </div>
+                       </div>
+                       <div class="input-div pass">
+                          <div class="i"> 
+                               <i class="fas fa-lock"></i>
+                          </div>
+                          <div class="div">
+                               <h5>Username</h5>
+                               <input type="text"  class="form-control" formControlName="user_name">
+                               <span style="color:red;" *ngIf="username && username.invalid && username.touched">username field is invalid</span>
+                            </div>
+                        </div>
+                        <div class="input-div pass">
+                            <div class="i"> 
+                                 <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="div">
+                                 <h5>Password</h5>
+                                 <input type="password" class="form-control" formControlName="password">
+                                 <span style="color:red;" *ngIf="password && password.invalid && password.touched">Password field is not valid</span>
+                              </div>
+                          </div>
+                    <a href="#">Forgot Password?</a>
+                    <input type="submit" class="btn" value="Login" (click)="onSubmit()">
+                </form>
+            </div>
+        </div>
+    </nb-layout-column>
+<nb-layout>
