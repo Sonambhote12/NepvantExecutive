@@ -24,4 +24,8 @@ export class AuthService {
   loginUser(user:object){
     return axios.post(`${environment.baseUrl}/auth/login`,user)
   }
+
+  forgotPassword(user:object){
+    return axios.post(`${environment.baseUrl}/auth/validation`, user)
+  }
 }

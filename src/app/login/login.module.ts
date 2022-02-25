@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
-import { NbCardModule, NbIconModule, NbLayoutModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbIconModule, NbInputModule, NbLayoutModule } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
@@ -18,7 +18,13 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     FormsModule,
     ReactiveFormsModule,
     NbEvaIconsModule, 
-    NbIconModule,   
+    NbIconModule,  
+    NbInputModule,
+    NbButtonModule 
+  ],
+  exports:[
+    LoginComponent
   ]
 })
 export class LoginModule { }
+

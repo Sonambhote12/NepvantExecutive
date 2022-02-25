@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router'
 import { AuthService } from 'src/app/auth/auth.service';
-import { AxiosInterceptor } from 'src/app/auth/axios.service';
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,10 @@ import { AxiosInterceptor } from 'src/app/auth/axios.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  error:string = '';
   addUserform!: FormGroup;
+  restform!: FormGroup;
+  public showPassword: boolean = false;
   constructor(private auth:AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -18,6 +21,11 @@ export class LoginComponent implements OnInit {
       slug: new FormControl('', [Validators.required]),
       user_name: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
+    })
+
+    this.restform = new FormGroup({
+      email: new FormControl(''),
+      slug: new FormControl('')
     })
   }
 
@@ -32,12 +40,23 @@ export class LoginComponent implements OnInit {
            this.router.navigate(['admin'])
         }
       }).catch((error) => {
-        console.log(error)
+        this.error = 'An error occured';
+        this.error = error.response.data.message;
+        console.log(this.error)
+        console.log(error.response.data.message)
       })
     }
    
    
   }
+  reset(){
+    console.log(this.restform.value);
+      this.auth.forgotPassword(this.restform.value).then((res) =>{
+        console.log(res.data)
+      })
+   
+  }
+
   get slug(){
     return this.addUserform.get('slug');
   }
@@ -46,5 +65,9 @@ export class LoginComponent implements OnInit {
   }
   get password(){
     return this.addUserform.get('password');
+  }
+
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

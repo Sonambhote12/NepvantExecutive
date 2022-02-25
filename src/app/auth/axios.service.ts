@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import axios from "axios";
+import { throwError } from "rxjs";
 import Swal from "sweetalert2";
 
 
@@ -21,6 +22,7 @@ axios.interceptors.response.use((response)=>{
       text: 'Not authenticated!',
       footer: '<a href="">Why do I have this issue?</a>'
     })
+    // error = "Email exits"
   }
   else if(error.response.status === 403){
     Swal.fire({
@@ -29,7 +31,6 @@ axios.interceptors.response.use((response)=>{
       text: 'Access token doesnot have the required permission!',
       footer: '<a href="">Why do I have this issue?</a>'
     })
-    localStorage.removeItem('token')
     window.location.href='/login'
   } else if(error.response.status === 500){
     Swal.fire({
@@ -39,6 +40,7 @@ axios.interceptors.response.use((response)=>{
       footer: '<a href="">Why do I have this issue?</a>'
     })
   }
+  return throwError(error)
 })
 
 @Injectable()
