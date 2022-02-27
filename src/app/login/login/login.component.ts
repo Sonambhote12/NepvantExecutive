@@ -13,7 +13,9 @@ export class LoginComponent implements OnInit {
   error:string = '';
   addUserform!: FormGroup;
   restform!: FormGroup;
-  public showPassword: boolean = false;
+  flip = false;
+  hide = true;
+  // public showPassword: boolean = false;
   constructor(private auth:AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -57,17 +59,7 @@ export class LoginComponent implements OnInit {
    
   }
 
-  get slug(){
-    return this.addUserform.get('slug');
-  }
-  get username(){
-    return this.addUserform.get('user_name');
-  }
-  get password(){
-    return this.addUserform.get('password');
-  }
-
-  public togglePasswordVisibility(): void {
-    this.showPassword = !this.showPassword;
+  showHidePassword(): void {
+    this.hide = !this.hide;
   }
 }

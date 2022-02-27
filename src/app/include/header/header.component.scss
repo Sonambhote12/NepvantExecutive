@@ -1,12 +1,8 @@
-// .box{
-//     float: left;
-//     clear: both;
-// }
-// .box2{
-//     float: left;
-//     margin-left: 1020px;
-// }
-.container{
-    display: flex;
-    gap: 10px;
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+@import '../../../themes';
+@include nb-install-component() {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
